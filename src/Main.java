@@ -11,6 +11,5 @@ public class Main {
         pool.invoke(calculator);
 
         System.out.println(root);
-
     }
 }
