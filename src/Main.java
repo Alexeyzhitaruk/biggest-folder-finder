@@ -3,8 +3,13 @@ import java.util.concurrent.ForkJoinPool;
 
 public class Main {
     public static void main(String[] args) {
-        File file = new File("C:\\Users\\Alexey\\Desktop");
-        Node root = new Node(file);
+
+        ParametersBag bag = new ParametersBag(args);
+
+        File file = new File(bag.getPath());
+        long sizeLimit = bag.getLimit();
+
+        Node root = new Node(file, sizeLimit);
 
         FolderSizeCalculator calculator = new FolderSizeCalculator(root);
         ForkJoinPool pool = new ForkJoinPool();
